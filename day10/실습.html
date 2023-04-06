@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    업다운게임 만들어주세요!
+
+    게임 :
+    출제자가 숫자를 하나 정한 뒤,
+    맞추는사람이 어떤 숫자를 말하면 처음에 정한 수보다 작은지 큰지 알려줍니다.
+
+    예를들어 처음에 50을 정했고, 맞추는사람이 60이라고 하면
+    50이 더 작으니 '다운'이라고 알려줍니다.
+
+    정해진 기회 안에 정확한 숫자를 맞추면 승리
+    맞추지 못하면 패배입니다.
+
+    게임 조건
+    난수 범위는 1~100까지
+    정답 기회는 총 5번
+
+    난수생성(Math.random)
+    유저와의 대화(alert, prompt)
+    정답 확인(if)
+    횟수 반복(for) + break;
+
+    * break란?
+    - for문 안에서 break를 만나면 for문이 즉시 종료된다.
+    (정답을 맞췄을때, break 하도록 만들면 되겠죠?)
+
+    <script>
+        // const number = Math.floor(Math.random() * 100 + 1);
+        // alert('수를 입력하세요');
+        // for (let i = 5; i > 0; i--) {
+        //     const answer = Number(prompt());
+        //     if (answer === number) {
+        //         alert('정답');
+        //         break
+        //     }
+        //     else if (answer > number) {
+        //         alert('다운');
+        //     }
+        //     else if (answer < number) {
+        //         alert('업');
+        //     }
+        // }
+        // alert(`기회 소진 답은 ${number}입니다.`);
+        // '' 작은따옴표
+        // `` 백틱
+
+        const number = Math.floor(Math.random() * 100 + 1);
+        alert('Up & Down 게임!');
+        alert(`정답을 입력해주세요 정답:${number}`);
+        for (let i = 5; i > 0; i--) {
+
+            const answer = Number(prompt('정답은 1부터 100 사이에 있습니다', '1~100 숫자 입력'));
+
+            if (answer > number) {
+                alert('Down! 더 작은 수를 입력해보세요.');
+            }
+            else if (answer < number) {
+                alert('Up! 더 큰 수를 입력해보세요.');
+            }
+            else if (answer === number) {
+                alert(`${number}! 정답입니다!`);
+                break;
+            } else {
+                alert('잘못된 입력입니다. 다시하세요.')
+                i++;
+            }
+            if (i === 1) {
+                alert(`기회 소진 답은 ${number}입니다.`);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

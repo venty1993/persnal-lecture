@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- if문
+
+if? 만약에 ~ 면
+
+if(조건){
+    조건이 참이면 실행
+}
+
+ex) 술집
+var 나이 = 프롬프트로 입력받음
+var 성인여부 = 나이>20;
+
+if(성인여부){
+    입장
+}else {
+    퇴장
+}
+
+if(1===1) {
+}
+ -->
+
+    <script>
+        var 나이 = Number(prompt('몇살이셈?'));
+        if (나이 > 20) {
+            console.log('통과')
+        } else {
+            console.log('돌아가')
+        }
+
+        console.log(`30살 이상은 할인입니다`)
+        if (나이 >= 30) {
+            console.log(`${나이}세는 할인 대상입니다`);
+        }
+        
+
+
+
+        if (나이 < 30) {
+            // 20대
+        } else if (나이 < 40) {
+            // 30대
+        } else if (나이 < 50) {
+            // 40대
+        } else {
+            // 그외
+        }
+
+
+
+    </script>
+</body>
+
+</html>

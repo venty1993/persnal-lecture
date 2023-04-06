@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 1번 요금제는 데이터 10gb
+        // 2번 요금제는 데이터 20gb
+
+        // 가입 상품 A는 데이터 무제한
+        // 가입 상품 B는 기본 데이터만 제공
+
+        // 내 요금제, 가입상품, 사용한 데이터 입력했을떄
+        // 초과인지 아닌지 콘솔에 출력
+
+        // 초과되는 상황을 먼저 정리해봅시다
+        // 가입상품이 A가 아니면서
+        // 가입상품 != `A`
+
+        // 요금제 1이면서 사용량이 10보다 클때
+        // 요금제===1 && 사용량 > 10  
+
+        // 요름제 2면서 사용량이 20보다 클때
+        // 요금제===2 && 사용량 > 20
+
+        // 요금제끼리 묵어보기
+        // 가입상품 != `A`  &&  ((요금제===1 && 사용량 > 10 ) ||  (요금제===2 && 사용량 > 20))
+
+        const 요금제 = 1//1,2중 하나
+        const 가입상품 = 'B'//A B중 하나
+        const 사용량 = 5//자유롭게 입력
+
+        if(가입상품 != `A`  &&  ((요금제===1 && 사용량 > 10 ) ||  (요금제===2 && 사용량 > 20))){
+            console.log('초과입니다.')
+        }
+    </script>
+</body>
+</html>

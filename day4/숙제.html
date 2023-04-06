@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        1. 롤러코스터를 타러 놀이공원에 갔다.
+        키가 135cm 미만이거나, 200cm 이상인 사람들은 롤러코스터를 탈 수없다고 한다.
+        키를 입력하고 조건에 맞으면 탑승 조건이 안맞으면 탑승 불가를 출력해주세요.
+
+        -> 출력은 alert()로 합니다.
+        -> if, else문 하나로 구현 할 수 있다.
+        -> 논리 연산자를 이용해서 풀면 됩니다.
+
+         -->
+    <script>
+        var minHeight = 135;
+        var maxHeight = 200;
+        var humanHeight = Number(prompt('키가 어떻게 되세요?'));
+
+        if (humanHeight >= minHeight && humanHeight < maxHeight) {
+            alert('탑승')
+        } else {
+            alert('탑승 불가')
+        }
+
+    </script>
+
+
+
+    <!-- 
+
+        2. 버스를 이용하려고 하는데, 나이대별로 요금이 다릅니다.
+        10세 미만 어린이, 10대청소년, 20대 이상 성인과, 65세 이상 노인으로 구분 됩니다.
+        나이를 입력했을때 이사람이 어떤 요금을 내야하는지 출력해주세요
+
+        -> 요금은 다음과같습니다.
+        어린이 800원
+        청소년 1000원
+        성인 1400원
+        노인 800원
+
+        -> 출력은 alert로,
+        ex) 11세는 청소년 요금이고, 금액은 1000원 입니다.
+        위 문장으로 출력되게 제작해주세요. -->
+
+    <script>
+        var humanAge = Number(prompt('몇살이세요?'));
+        var humanAgeClass;
+        var busCost;
+
+        if (humanAge < 10) {
+            humanAgeClass = '어린이';
+            busCost = 800;
+        } else if (humanAge < 20) {
+            humanAgeClass = '청소년';
+            busCost = 1000;
+        } else if (humanAge >= 65) {
+            humanAgeClass = '노인';
+            busCost = 800;
+        } else {
+            humanAgeClass = '성인';
+            busCost = 1400;
+        }
+
+        alert(`${humanAge}세는 ${humanAgeClass} 요금이고, 금액은 ${busCost}원입니다.`)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        var 숫자 = 10;
+
+        // 산술연산자에서, [ ++ , -- ]는 일항연산자 이며,
+        // 변수의 앞이나 뒤에 붙을수 있다.
+        // ++숫자 도 가능하고 숫자++ 도 가능하다.
+        숫자++;
+
+        // 이게 뭐냐면?
+        // 숫자를 하나씩 늘리거나 줄일때 원래는
+        // [숫자 = 숫자 + 1] 는 [숫자 += 1]와 같다.
+        // 근데 1을 늘리고 줄이는건 너무 많이쓰는거니까 좀더 편하게 숫자++ 이렇게 쓰자
+
+        console.log(숫자); //숫자 = 11
+
+        // 그럼, 앞에 붙는건 뭐고(++숫자) 뒤에 붙는건 뭘까? (숫자++)
+
+        console.log(숫자++); //어? 여기는 11이 나올까 12가나올까?    11 or 12
+        console.log(++숫자); //여기는 뭐가 나올까?                  12 or 13
+
+
+        // 숫자 = 13
+
+        // % 연산자는 나머지를 구하는데 사용 한다.
+
+        var 바구니 = 10 % 3
+
+        console.log(바구니);
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+        돔요소를 js로 가져오는 여러가지 방법이 있다
+        Document Object M
+        Browser Object M
+
+        1. 쿼리셀렉터
+
+        쿼리셀렉터('.container > div:hover') -> (단품)
+        쿼리셀렉터올('선택자') -> (묶음상태))
+
+        쿼리셀렉터('.친구')
+        
+
+        한번 친구는 영원한 친구
+
+
+        2. 엘레멘트형태로 가져오거나
+        getElementBy???
+        ClassName(복수) -> HTML Collection(묶음상태)
+        TagName(복수) -> HTML Collection(묶음상태)
+        ID(단수) -> HTML Object(단품)
+
+        같은 직장 동료
+
+
+     -->
+    
+     
+    <div class="친구"></div>
+
+    <script>
+        const 쿼리친구 = document.querySelector('.친구');
+        const 클래스친구 = document.getElementsByClassName('친구');
+    </script>
+</body>
+
+</html>

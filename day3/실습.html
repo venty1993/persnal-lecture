@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 30세 이상, 경력 5년이상, 성별 남성(남자를 true 여자를 false로 설정)
+        // 위조건이 맞으면 alert('면접보러오세요'), 틀리면 alert('탈락입니다')를 실행해주세요!
+
+
+        var 나이 = Number(prompt('몇살이신가요?', '숫자만 입력하세요'));
+        var 경력 = Number(prompt('몇년 일했나요?', '숫자만 입력하세요'));
+        var 성별 = prompt('성별을 입력해주세요', "true or false");
+
+        var 합격여부 = 나이 >= 30 && 경력 >= 5 && 성별 === 'true';
+
+        var 메세지 = 합격여부 ? '면접보러' : '탈락입니다';
+
+        alert(메세지);
+
+    </script>
+</body>
+
+</html>

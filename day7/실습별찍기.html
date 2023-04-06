@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        1.
+        * * * * *
+        * * * *
+        * * * 
+        * * 
+        * 
+
+        2. (hint : 앞에는 공백이 반복되는중)
+        * * * * *
+          * * * *
+            * * *
+              * *
+                *
+
+        3. (위에 삼각형 2줄을 따로, 밑에 3줄을 따로 만들수도 있고,)
+        (절대값을 이용할수도 있는데... 음.. 이쪽은 여러분의 판단에 맡기겠습니다.)
+            *
+          * * *
+        * * * * *
+          * * *
+            * 
+        -->
+
+    <script>
+
+
+        for (let i = 0; i < 5; i++) {
+            document.write(`${i}줄 : `)
+            for (let j = 0; j < (5 - i); j++) {
+                star();
+            }
+            enter();
+        }
+
+
+
+        function star() {
+            document.write('&nbsp;')
+            document.write('*')
+            document.write('&nbsp;')
+        }
+
+        function enter() {
+            document.write('<br>')
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="click-able" onclick="changeColor('pink')">
+        안녕하세요
+    </div>
+    <ul>
+        <li class="color-button" onclick="changeColor('blue')">파랑</li>
+        <li class="color-button" onclick="changeColor('red')">빨강</li>
+        <li class="color-button" onclick="changeColor('black')">검정</li>
+    </ul>
+
+    <script>
+
+        시스템가동();
+        function 시스템가동() {
+            let 계좌잔고 = 10000;
+            console.log(계좌잔고);
+
+
+            function changeColor(choiceColor) {
+                const clickAble = document.querySelector('.click-able');
+                clickAble.style.color = choiceColor;
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

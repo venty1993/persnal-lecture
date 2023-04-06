@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="click-able">
+        안녕하세요
+    </div>
+    <ul>
+        <li class="color-button">파랑</li>
+        <li class="color-button">빨강</li>
+        <li class="color-button">검정</li>
+    </ul>
+    <script>
+        초기화();
+        function 초기화() {
+
+            // window(브라우저)
+            // document
+
+            const clickAble = document.querySelector('.click-able');
+            const colorButtons = document.getElementsByClassName('color-button');
+            console.log(colorButtons[0]);
+
+            colorButtons[0].addEventListener('click', () => {
+                changeColor('blue')
+            })
+            colorButtons[1].addEventListener('click', () => {
+                changeColor('red')
+            })
+            colorButtons[2].addEventListener('click', () => {
+                changeColor('black')
+            })
+
+            function changeColor(colorPick) {
+                clickAble.style.color = colorPick;
+            }
+        }
+
+        // changeColor()불가능;
+
+    </script>
+</body>
+
+</html>

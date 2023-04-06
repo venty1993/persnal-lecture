@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+    영희네 복숭아 농장에서 복숭아를 수확할 시기가 왔습니다.
+영희네 농장 바구니는 복숭아가 10개씩 들어갑니다
+그러면 오늘 수확한 복숭아를 전부 바구니에 담으려면
+몇개의 바구니가 필요한지 구해주세요.
+ -->
+
+    <script>
+        var 복숭아 = Number(prompt('오늘 수확한 복숭아는 몇개입니까?'));
+
+        // 소수점을 어떻게 처리할거냐?
+        // 이 문제를 원래는 자바스크립트에서 내던문제가 아니다.
+        // c언어, java에서 내던 문제
+        // 얘네는 애초에 실수와 정수로 자료형이 구분되어있다.
+        // c언어에서 정수 10을 3으로 나누면 3.3이 아니라 3이 됩니다.
+        // 근데 자바스크립트는 그냥 정수를 정수로 나눠도 실수로 만들어버린다.
+        // 다른 언어는 정수를 정수로 나누면 정수로 나온다
+
+        var 바구니 = Math.floor(복숭아 / 10);
+        var 남은복숭아 = 복숭아 % 10;
+        console.log(바구니)
+        console.log(남은복숭아)
+
+        남은복숭아 !== 0 ? 바구니++ : '';
+
+        alert(`바구니는 총 ${바구니}개가 필요합니다!`)
+
+        // 혹은 Math.ceil을 이용해서
+        // Math.ceil(복숭아/10);
+
+        // 혹은 그냥 규칙을 이용해서
+        // (복숭아+9)/10
+
+
+
+    </script>
+</body>
+
+</html>

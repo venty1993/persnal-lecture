@@ -1,0 +1,114 @@
+일반적으로 별을 찍으려고 하면
+어디다 찍을지를 먼저 정해야 한다.
+
+1. 콘솔
+2. html
+
+html에 *, ' ', 엔터를 입력하려면 다음과 같이 입력해야 하는데,
+
+document.write('*')
+document.write('&nbsp;')
+document.write('<br>')
+
+위와같이 자주 쓰기엔 글자도 많고, 우리가 눈으로 보기에 모양이 복잡해진다.
+
+ex. 예를들어 5x5의 별을 찍으려면 다음처럼 된다.
+<br>
+<script>
+    document.write('*')
+    document.write('*')
+    document.write('*')
+    document.write('*')
+    document.write('*')
+    document.write('<br>')
+    document.write('*')
+    document.write('*')
+    document.write('*')
+    document.write('*')
+    document.write('*')
+    document.write('<br>')
+    document.write('*')
+    document.write('*')
+    document.write('*')
+    document.write('*')
+    document.write('*')
+    document.write('<br>')
+    document.write('*')
+    document.write('*')
+    document.write('*')
+    document.write('*')
+    document.write('*')
+    document.write('<br>')
+    document.write('*')
+    document.write('*')
+    document.write('*')
+    document.write('*')
+    document.write('*')
+    document.write('<br>')
+
+</script>
+
+그런데, 반복문을 쓰면 어떻게 되는가?
+<br>
+
+<script>
+    for (let i = 0; i < 5; i++) {
+
+        for (let j = 0; j < 5; j++) {
+            document.write('*')
+        }
+        document.write('<br>')
+    }
+
+
+</script>
+
+근데 위에거 하나만 할거면 괜찮은데, 별찍기를 여러개 만들어야한다.
+과제가 많을때는 위 모양도 비효율적일수 있다.
+<br>
+
+
+<script>
+
+    for (let i = 0; i < 5; i++) {
+
+        for (let j = 0; j < 5; j++) {
+            star();
+        }
+        enter();
+    }
+
+    for (let i = 0; i < 5; i++) {
+
+        for (let j = 0; j < 5; j++) {
+            star();
+        }
+        enter();
+    }
+    for (let i = 0; i < 5; i++) {
+
+        for (let j = 0; j < 5; j++) {
+            star();
+        }
+        enter();
+    }
+    for (let i = 0; i < 5; i++) {
+
+        for (let j = 0; j < 5; j++) {
+            star();
+        }
+        enter();
+    }
+
+
+    function star() {
+        document.write('&nbsp;')
+        document.write('*')
+        document.write('&nbsp;')
+    }
+
+    function enter() {
+        document.write('<br>')
+    }
+
+</script>

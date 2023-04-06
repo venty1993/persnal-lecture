@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            padding-top: 32px;
+        }
+
+        #todolist-container {
+            padding: 16px;
+            width: 400px;
+            height: 500px;
+            font-size: 12px;
+            box-sizing: border-box;
+            margin: 0 auto;
+            border: 1px solid #444;
+            border-radius: 8px;
+            color: #222;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+        }
+
+        #adding-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #adding-wrapper>form {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        #adding-wrapper input {
+            padding: 8px;
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid #aaa;
+        }
+
+        .adding-wrapper input::placeholder {
+            color: #aaa;
+        }
+
+        #add-button {
+            border: none;
+            background-color: white;
+            color: #616FEC;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #616fec;
+            padding: 8px 8px;
+        }
+
+        #to-do-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .todo {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .dateclass {
+            flex-shrink: 0;
+            color: #aaa;
+        }
+
+        .line-in-bucket {
+            width: 100%;
+        }
+
+        .del-button {
+            flex-shrink: 0;
+            padding: 8px;
+            color: #ff5454;
+            text-decoration: none;
+            border: none;
+            background-color: white;
+        }
+
+        h2 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            width: 100%;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="todolist-container">
+        <div id="adding-container">
+            <h2>할 일 추가하기</h2>
+            <div id="adding-wrapper">
+                <form id="form">
+                    <input type="text" id="todo-input" placeholder="할 일을 추가하기">
+                    <button type="submit" id="add-button">추가</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="bucket">
+            <h2>오늘의 할 일</h2>
+            <ul id="lists">
+            </ul>
+
+
+            <script>
+                const cheklist = document.getElementsByClassName('todocheck');
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    creating_list();
+                    function creating_list() {
+                        if (document.getElementById('todo-input').value !== '') {
+                            <!-- 참조용변수 -->
+                            let todoInput = document.getElementById('todo-input').value;
+
+                            const time = new Date();
+                            const date = `${time.getFullYear()}-${time.getMonth() + 1}-${time.getDate()}`;
+
+                            // < !--객체생성용변수 -->
+                            const phraseObject = document.createElement('p');
+                            const deleteObject = document.createElement('button');
+                            const liObject = document.createElement('li');
+                            const checkboxObject = document.createElement('input');
+                            const pDay = document.createElement('p');
+
+                            // < !--객체속성지정 -->
+                            checkboxObject.setAttribute('type', 'checkbox');
+                            checkboxObject.addEventListener('click', () => {
+                                if (checkboxObject.checked === true) {
+                                    phraseObject.style.textDecorationLine = 'line-through';
+                                    const liObject = checkboxObject.parentNode;
+                                    liObject.parentNode.appendChild(liObject);
+                                } else {
+                                    phraseObject.style.textDecorationLine = 'none';
+                                }
+
+                                let isTrue = [];
+                                // cheklist : input(체크박스) 체크박스의 리스트를 가져온다.
+                                console.log(cheklist)
+                                Array.from(cheklist).forEach((checkbox) => {
+                                    isTrue.push(checkbox.checked);
+                                });
+                                if (isTrue.includes(false)) {
+                                    console.log("there's something unchecked");
+                                } else {
+                                    alert('오늘의 할 일을 모두 마쳤어요!');
+                                }
+                            });
+
+                            deleteObject.addEventListener('click', (e) => {
+                                const liObject = deleteObject.parentNode;
+                                liObject.parentNode.removeChild(liObject);
+                            });
+
+                            liObject.classList.add('todo');
+                            pDay.classList.add('dateclass');
+                            phraseObject.classList.add('line-in-bucket');
+                            phraseObject.appendChild(document.createTextNode(`${todoInput}`));
+                            deleteObject.classList.add('del-button');
+                            checkboxObject.classList.add('todocheck');
+                            deleteObject.appendChild(document.createTextNode(`삭제`));
+                            pDay.innerText = date
+
+                            // < !--객체 생성-- >
+                            document.getElementById('lists').appendChild(liObject);
+                            liObject.appendChild(checkboxObject);
+                            liObject.appendChild(phraseObject);
+                            liObject.appendChild(pDay);
+                            liObject.appendChild(deleteObject);
+                            document.getElementById('todo-input').value = '';
+                        }
+                    }
+                })
+
+
+            </script>
+        </div>
+</body>
+
+</html>

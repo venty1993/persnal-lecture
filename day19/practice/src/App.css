@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.card {
+  width: 200px;
+  height: 300px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+figure {
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+  border-radius: 4px;
+}
+
+.header-container {
+  display: flex;
+  gap: 8px;
+}
+
+ul.stars {
+  display: flex;
+  justify-content: flex-end;
+}

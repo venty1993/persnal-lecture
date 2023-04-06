@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background-color: #00000080;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #232323;
+            border-radius: 4px;
+            padding: 16px;
+            background-color: white;
+
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">모달창입니다</h2>
+                <button class="modal-close">X</button>
+            </div>
+            <p class="modal-contents">모달 내용입니다</p>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+
+        const db = [
+            ['1번문서', '가재는게편'],
+            ['2번문서', '운동해야지'],
+            ['3번문서', '살려면 해야지'],
+            ['4번문서', '대게는 가성비가 안좋다'],
+            ['5번문서', '국밥이 최고지'],
+            ['6번문서', '배고프다']
+        ]
+        const modalTitle = document.querySelector('.modal-title');
+        const modalContents = document.querySelector('.modal-contents');
+
+        for (let i = 0; i < db.length; i++) {
+            const buttonObject = document.createElement('button');
+            buttonObject.appendChild(document.createTextNode(`${i + 1}번 버튼`));
+            document.querySelector('body').appendChild(buttonObject);
+
+            buttonObject.addEventListener('click', () => {
+                modalTitle.innerText = db[i][0];
+                modalContents.innerText = db[i][1];
+                modalOpen();
+
+            })
+        }
+        const modal = document.querySelector('.modal-overlay');
+        const modalCloseBtn = document.querySelector('.modal-close');
+
+
+        // 외부 클릭시 닫히도록 처리
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal-overlay')) {
+                modalClose();
+            };
+        })
+
+        window.addEventListener('keydown', (e) => {
+            console.log(e);
+            if (e.key === 'Escape') {
+                modalClose();
+            }
+        })
+
+
+        function modalOpen() {
+            modal.style.display = `flex`;
+        }
+        function modalClose() {
+            modal.style.display = `none`;
+        }
+    </script>
+</body>
+
+</html>

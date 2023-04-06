@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            height: 2000px;
+        }
+
+        .content {
+            margin-top: 1000px;
+
+            width: 200px;
+            height: 300px;
+            border: 1px solid #232323;
+            border-radius: 4px;
+            padding: 8px;
+            box-sizing: border-box;
+
+            transition: 0.5s;
+        }
+
+        .content-image {
+            background-color: pink;
+            width: 100%;
+            height: 150px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+        }
+
+        .content-heading {
+            margin-bottom: 8px;
+        }
+
+        .scroll-animation-from-bottom {
+            transform: translateY(100px);
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content scroll-animation-from-bottom">
+        <figure class="content-image">
+
+        </figure>
+        <h3 class="content-heading">
+            콘텐츠 제목
+        </h3>
+        <p>콘텐츠 내용</p>
+    </div>
+
+
+    <script>
+        const sa = document.querySelector('.scroll-animation-from-bottom');
+        window.addEventListener('scroll', () => {
+            console.log(sa.getBoundingClientRect().top)
+            // 스크롤했을때, 조건에 맞아야 보이게 하는건데 이때 자주 쓰는 메서드가 있다.
+            // 객체.getBoundingClientRect()
+            // 위 메서드는 객체의 높이나 너비, 상대적인 위치를 반환 해준다.
+            // 여기에 추가로 window.innerHeight 라는 프로퍼티가 있다.
+            // 내가 지금 보고있는 윈도우창 내부의 높이 값이다.
+            if (sa.getBoundingClientRect().top < window.innerHeight) {
+                viewContents();
+            } else {
+                hideContents();
+            }
+        })
+
+        function viewContents() {
+            sa.classList.remove('scroll-animation-from-bottom')
+        }
+
+        function hideContents() {
+            sa.classList.add('scroll-animation-from-bottom')
+        }
+    </script>
+</body>
+
+</html>

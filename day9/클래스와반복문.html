@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mod-width {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        li의 크기를 조절해주는 js를 만들고싶다.
+        li의 너비를 전부 150px로 조절해주자.
+    -->
+
+    <ul>
+        <li class="mod-width"></li>
+        <li class="mod-width"></li>
+        <li class="mod-width"></li>
+        <li class="mod-width"></li>
+    </ul>
+    <!-- 오늘의 실습! -->
+    <!-- 밑의 li를 누르면 그 px로 너비가 변할수있게 만들어주세요 -->
+    <ul>
+        <li class="width-button" data-this-width="100">100px</li>
+        <li class="width-button" data-this-width="200">200px</li>
+        <li class="width-button" data-this-width="300">300px</li>
+        <li class="width-button" data-this-width="500">500px</li>
+        <li class="width-button" data-this-width="900">900px</li>
+    </ul>
+
+    <script>
+
+        // 0번째부터 4번째까지 크기를 변경해줄거다.
+        // modWidth[0].style.width = '150px'
+        // modWidth[1].style.width = '150px'
+        // modWidth[2].style.width = '150px'
+        // modWidth[3].style.width = '150px'
+        // modWidth[4].style.width = '150px'
+
+        // 다 똑같은데 modWidth[여기] 만 달라지죠?
+
+        // for (let i = 0; i < 5; i++) {
+        //     modWidth[i].style.width = '200px'
+        // }
+        const modWidth = document.getElementsByClassName('mod-width');
+        const widthButton = document.getElementsByClassName('width-button');
+
+        // widthButton[0].addEventListener('click', () => {
+        //     widthChange(100)
+        // })
+        // widthButton[1].addEventListener('click', () => {
+        //     widthChange(200)
+        // })
+        // widthButton[2].addEventListener('click', () => {
+        //     widthChange(300)
+        // })
+
+        // for (let i = 0; i < )
+
+        for (let i = 0; i < widthButton.length; i++) {
+            widthButton[i].addEventListener('click', () => {
+                widthChange(widthButton[i].dataset.thisWidth);
+            })
+        }
+
+        function widthChange(getWidth) {
+            for (let i = 0; i < modWidth.length; i++) {
+                modWidth[i].style.width = `${getWidth}px`;
+                // console.log(`${i}번 실행`);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ((별() x 5) 엔터()) x 5 
+
+
+
+        for(let i = 1; i <= 5; i++){
+            별5개찍기();
+            엔터();
+        }
+
+        
+        function 별5개찍기(){
+            for(let i = 1; i <= 5; i++){
+                별();
+            }
+        }
+
+
+        function 별(){
+            document.write('* ')
+        }
+
+        function 엔터(){
+            document.write('<br>')
+        }
+
+        function 공백() {
+            document.write('&nbsp;&nbsp;&nbsp;')
+        }
+
+        엔터();
+        엔터();
+
+function 마름모그리기(line){
+    
+    for(let i = 0 ; i < line ; i ++ ){
+        const 중간 = Math.floor(line/2);
+        console.log(중간)
+        const 공백갯수 = Math.abs(i-중간);
+        // 0: 2, 1: 1 , 2: 0, 3: 1, 4: 2;
+        const 별갯수 = 2*(중간-공백갯수) + 1;
+        // 
+        
+        for(let j = 0 ; j < 공백갯수 ; j ++) { 
+            공백();
+        }
+        for(let j = 0 ; j < 별갯수 ; j ++) {
+            별();
+        }
+        엔터();
+    }
+}
+
+        엔터();
+        엔터();
+        
+        for(let i = 0 ; i < 5 ; i ++ ){
+            // 5 3 1 3 5
+            // 1+2*2, 1+2*1, 1+2*0, 1+2*1, 1+2*2
+
+            // 0 1 2 1 0
+            // 2-2,2-1,2-2,2-1,2-2
+            const 별갯수 = 1 + 2 * Math.abs(i-2);
+            const 공백갯수 = 2 - Math.abs(i-2);
+            for(let j = 0 ; j < 공백갯수 ; j ++) { 
+                공백();
+            }
+            for(let j = 0 ; j < 별갯수 ; j ++) {
+                별();
+            }
+            엔터();
+        }
+
+    </script>
+</body>
+</html>
+<!-- 
+
+    * * * * *
+    * * * * * 
+    * * * * * 
+    * * * * * 
+    * * * * * 
+
+    * 
+    * * 
+    * * * 
+    * * * * 
+    * * * * * 
+
+    * * * * * 
+    * * * * 
+    * * * 
+    * * 
+    * 
+
+    * * * * * 
+      * * * * 
+        * * * 
+          * * 
+            * 
+            
+            * 
+          * * 
+        * * * 
+      * * * * 
+    * * * * * 
+
+
+    
+        * 
+      * * * 
+    * * * * * 
+      * * * 
+        * 
+
+    * * * * * 
+      * * * 
+        * 
+      * * * 
+    * * * * * 
+
+
+-->

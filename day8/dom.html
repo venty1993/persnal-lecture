@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    DOM 요소
+
+    HTML의 DOM 요소란 무엇인가?
+
+    Documents Object Model
+
+    Document : html 파일
+
+    나뭇가지처럼 dom tree가 형성되어 있는데
+    내가 원하는 html 요소에 접근해서 js로 처리가 가능하다.
+    <div class="hi">
+        안녕하세요
+    </div>
+
+    <div id="태식">
+        태식태식
+    </div>
+    <!--  -->
+    제가 누군가한테 일을 시키고싶어요
+
+    태식.문제풀기();
+
+    <script>
+        const 태식 = document.getElementById('태식');
+        태식.innerHTML = '오우';
+
+    </script>
+</body>
+
+</html>

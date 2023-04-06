@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+
+        .slide-container {
+            width: 200px;
+            border: red 1px solid;
+            overflow: hidden;
+        }
+
+        .slide-contents-wrapper {
+            /* width 100% */
+            display: flex;
+            width: fit-content;
+            transition: 0.5s;
+            /* 
+                transform: translateX(calc(-200px * 2));
+
+            */
+        }
+
+        .slide-content {
+            width: 200px;
+            height: 100px;
+            border: 1px solid #232323;
+            font-size: 50px;
+            text-align: center;
+            line-height: 100px;
+            box-sizing: border-box;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <div class="slide-container">
+        <ul class="slide-contents-wrapper">
+            <li class="slide-content">1</li>
+            <li class="slide-content">2</li>
+            <li class="slide-content">3</li>
+            <li class="slide-content">4</li>
+            <li class="slide-content">5</li>
+        </ul>
+    </div>
+    <button id="prev">이전</button>
+    <button id="next">다음</button>
+
+    <script>
+        const slideWrapper = document.querySelector('.slide-contents-wrapper');
+        const nextButton = document.getElementById('next');
+        const prevButton = document.getElementById('prev');
+        let index = 0;
+
+        nextButton.addEventListener('click', 다음);
+        prevButton.addEventListener('click', 이전);
+
+        function 다음() {
+            index++;
+            if (index === 5) {
+                index = 0;
+            }
+            적용();
+        }
+
+        function 이전() {
+            index--;
+            if (index === -1) {
+                index = 4;
+            }
+            적용();
+        }
+
+        function 적용() {
+            slideWrapper.style.transform = `translateX(${index * (-200)}px)`;
+        }
+
+        // index만 바꿔선 아무것도 바뀌지 않는다.
+        // 실질적으로 이동은 transform : translateX 속성이 해주고있기때문에
+        // index가 변경된 이후 속성을 최신화 해줘야 슬라이드에 적용된다.
+
+        // 숙제 : 이전 버튼 만들기
+    </script>
+</body>
+
+</html>

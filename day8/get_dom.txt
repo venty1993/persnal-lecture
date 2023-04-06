@@ -1,0 +1,94 @@
+요소를 가져올때 구분하는 방법
+
+1. ID
+2. class
+3. tag
+
+<div class='클래스' id='아이디'>
+
+가져오는 방법 1
+
+getElementBy or getElementsBy
+
+- getElementById
+ -> 무조건 1개만 가져와진다.
+
+- getElementsByClassName
+- getElementsByTagName
+ -> 1개든 여러개든 무조건 묶음으로 가져와진다.
+
+const idid = document.getElementById('idid');
+id일땐 하나만 가져오기때문에
+
+idid.innerText = '텍스트내용'
+
+이렇게 사용이 가능하다.
+
+
+그런데 class, tag는 기본 전제가 '복수'이다.
+
+const 클래스 = document.getElementsByClassName('class')
+
+이런식으로 가져왔을때 [클래스] 는 묶음으로 가져와진다.
+
+때문에 묶음 안에 있는 요소에 접근을 해야하니,
+클래스[0] 과 같은 형태로 써야한다.
+
+클래스 갯수와 상관없이 무조건 묶음으로만 가져와진다.
+
+태그도 클래스와 완전히 동일하다.
+
+
+
+
+가져오는방법 2
+
+querySelector or querySelectorAll
+
+-querySelector (하나만 가져온다.)
+-querySelectorAll (여러개 가져온다.)
+
+const object = document.querySelector('.class')
+const object = document.querySelector('#id')
+const object = document.querySelector('figure')
+
+css 선택자로 dom요소를 가져오는 방식.
+재밌는건,
+
+const object = document.querySelector('.class > .inner-class')
+
+이런 형태도 됩니다.
+html과 css의 상속관계, 혹은 active 등의 가상선택자도 가능은 하다.
+
+querySelector는 html dom요소를 위에서부터 읽어서 가장먼저 만나는 요소를 가져온다.
+querySelectorAll은 html dom요소에 조건에맞는 녀석들을 전부다 가져온다.
+
+
+
+
+-------------------------
+
+그럼 getElement 방식과
+querySelector 방식의 차이는 무엇이냐?
+
+다른나라는 안그런데, 유독 우리나라는 어떤 문화가있냐?
+정이 있죠?
+
+회원 연회비를 안낸지 5년
+단톡방에 다 들어가있고
+다 아는사람이야..
+
+5년전에는 이솔.멘보샤회원 이었다.
+근데 지금은 이솔 이다.
+
+querySelector('.멘보샤회원');
+
+-> '이솔'에 집중한다.
+
+getElementsByClassName('멘보샤회원');
+
+-> '.멘보샤회원' 에 집중한다.
+
+
+
+만약, 두 선언을 같이 해놓고.

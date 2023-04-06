@@ -1,0 +1,76 @@
+변수 에는 scope라는 개념이 있다!
+
+크게 봤을때, 지역변수와 전역변수가있다.
+
+global, local
+
+
+function 함수이름() {
+함수내용;
+
+여기서 변수가 선언되면 이건 지역변수.
+
+}
+
+
+ex )
+
+
+<script>
+
+    if(true){
+        let 우리동네박지성 = '구월동박지성';
+    }
+    
+    alert(우리동네박지성);
+
+    
+</script>
+
+
+var는 함수단위 스코프를 가지고있고,
+
+let const는 블록단위 스코프를 가지고있다.
+
+<!-- <script>
+    let 나이 = Number(prompt('몇살?'));
+    let 성인여부
+    if (나이 > 20) {
+         성인여부 = true;
+    }
+
+    console.log(성인여부);
+</script> -->
+
+이건 let의 스코프때문에 if{ }내부에 있는 let은 외부에 영향을 못준다.
+그래서 46줄에있는 console.log에서는 성인여부라는 변수는 정의되지 않았다라고 오류를 띄워준다.
+
+그런데 var의경우
+
+<!-- <script>
+    let 나이 = Number(prompt('몇살?'));
+
+    if (나이 > 20) {
+        var 성인여부 = true;
+    }
+
+    console.log(성인여부);
+</script> -->
+
+스코프가 함수단위 이기때문에 괄호 밖에도 영향을 줄수 있다.
+
+<script>
+    function 나이파악() {
+
+        let 나이 = Number(prompt('몇살?'));
+        let 성인여부;
+
+        if (나이 > 20) {
+            성인여부 = true;
+        }
+
+        console.log(성인여부);
+    }
+</script>
+
+실제로 let으로 쓸때는 위처럼 쓰면 된다.

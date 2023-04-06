@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .gugu-container {
+        display: flex;
+        gap: 8px;
+        width: 1200px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+
+    .dan {
+        width: 100px;
+        border: 1px solid #232323;
+        padding: 8px;
+        border-radius: 4px;
+    }
+</style>
+
+<body>
+
+    <!-- <div class="gugu-container">
+        <div class="dan">
+            <h3>1단</h3>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+        </div>
+        <div class="dan">
+            <h3>1단</h3>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+        </div>
+        <div class="dan">
+            <h3>1단</h3>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+        </div>
+        <div class="dan">
+            <h3>1단</h3>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+        </div>
+        <div class="dan">
+            <h3>1단</h3>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+        </div>
+        <div class="dan">
+            <h3>1단</h3>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+        </div>
+        <div class="dan">
+            <h3>1단</h3>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+        </div>
+        <div class="dan">
+            <h3>1단</h3>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+        </div>
+        <div class="dan">
+            <h3>1단</h3>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+            <p>1x1=1</p>
+        </div>
+    </div>
+ -->
+
+
+    <!--   
+        실습 3.
+        html에 1단부터 9단을 출력합니다.
+        적당한 디자인도 곁들여서ㅎ
+        html에 출력하는 방법 : document.write('내용') -> html에 '내용'이 더해진다
+    -->
+    ㅎㅎㅋㅋ 풉키풉키
+    <script>
+        document.write(`<div class="gugu-container">`);
+        for (let dan = 1; dan <= 9; dan++) {
+            document.write(`<div class="dan">
+            <h3>${dan}단</h3>`)
+            for (let i = 1; i <= 9; i++) {
+                document.write(`<p> ${dan} * ${i} = ${dan * i} </p>`);
+            }
+            document.write(`</div>`);
+        }
+        document.write(`</div>`);
+    </script>
+</body>
+
+</html>

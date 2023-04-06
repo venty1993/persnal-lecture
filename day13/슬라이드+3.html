@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+
+        .slide-container {
+            width: 200px;
+            border: red 1px solid;
+            overflow: hidden;
+        }
+
+        .slide-contents-wrapper {
+            /* width 100% */
+            display: flex;
+            width: fit-content;
+            transition: 0.5s;
+            /* 
+                transform: translateX(calc(-200px * 2));
+
+            */
+        }
+
+        .slide-content {
+            width: 200px;
+            height: 100px;
+            border: 1px solid #232323;
+            font-size: 50px;
+            text-align: center;
+            line-height: 100px;
+            box-sizing: border-box;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <div class="slider">
+        <div class="slide-container">
+            <ul class="slide-contents-wrapper">
+
+                <li class="slide-content">1</li>
+                <li class="slide-content">2</li>
+                <li class="slide-content">3</li>
+                <li class="slide-content">4</li>
+                <li class="slide-content">5</li>
+                <!-- 여기에 복사본 추가 -->
+            </ul>
+        </div>
+        <button class="prev">이전</button>
+        <button class="next">다음</button>
+    </div>
+
+
+    <div class="slider">
+        <div class="slide-container">
+            <ul class="slide-contents-wrapper">
+
+                <li class="slide-content">1</li>
+                <li class="slide-content">2</li>
+                <li class="slide-content">3</li>
+                <li class="slide-content">4</li>
+                <li class="slide-content">5</li>
+                <!-- 여기에 복사본 추가 -->
+            </ul>
+        </div>
+        <button class="prev">이전</button>
+        <button class="next">다음</button>
+    </div>
+    <div class="slider">
+        <div class="slide-container">
+            <ul class="slide-contents-wrapper">
+
+                <li class="slide-content">1</li>
+                <li class="slide-content">2</li>
+                <li class="slide-content">3</li>
+                <li class="slide-content">4</li>
+                <li class="slide-content">5</li>
+                <!-- 여기에 복사본 추가 -->
+            </ul>
+        </div>
+        <button class="prev">이전</button>
+        <button class="next">다음</button>
+    </div>
+    <div class="slider">
+        <div class="slide-container">
+            <ul class="slide-contents-wrapper">
+
+                <li class="slide-content">1</li>
+                <li class="slide-content">2</li>
+                <li class="slide-content">3</li>
+                <li class="slide-content">4</li>
+                <li class="slide-content">5</li>
+                <!-- 여기에 복사본 추가 -->
+            </ul>
+        </div>
+        <button class="prev">이전</button>
+        <button class="next">다음</button>
+    </div>
+    <div class="slider">
+        <div class="slide-container">
+            <ul class="slide-contents-wrapper">
+
+                <li class="slide-content">1</li>
+                <li class="slide-content">2</li>
+                <li class="slide-content">3</li>
+                <li class="slide-content">4</li>
+                <li class="slide-content">5</li>
+                <!-- 여기에 복사본 추가 -->
+            </ul>
+        </div>
+        <button class="prev">이전</button>
+        <button class="next">다음</button>
+    </div>
+
+    <div class="big-slider">
+        <div class="slide-container">
+            <ul class="slide-contents-wrapper">
+
+                <li class="slide-content">1</li>
+                <li class="slide-content">2</li>
+                <li class="slide-content">3</li>
+                <li class="slide-content">4</li>
+                <li class="slide-content">5</li>
+                <!-- 여기에 복사본 추가 -->
+            </ul>
+        </div>
+        <button class="prev">이전</button>
+        <button class="next">다음</button>
+    </div>
+
+
+
+
+    <script>
+
+        // 여러개의 슬라이드에 동시에 적용할수 있도록 만들수있을까?
+
+        // 클래스를 이용해 html 객체들을 가져온다.
+        // 묶음형태로 가져와진다.
+
+        const bigSlider = document.querySelector('.big-slider');
+        makeSlider(bigSlider);
+
+        const sliders = document.getElementsByClassName('slider');
+        // html 안에있는 슬라이더의 갯수만큼 반복
+        for (let i = 0; i < sliders.length; i++) {
+            // html의 slider에 순차적으로 makeSlider함수 적용
+            makeSlider(sliders[i])
+        }
+
+
+        function makeSlider(slider) { //여기의 slider 라는 매개변수는 html의 slider[i]
+            // slider[i] > 첫번째 자식(div.slide-container) > 첫번째 자식(ul)
+            const slideWrapper = slider.children[0].children[0];
+            // slider[i] > 두번째 자식(button.prev)
+            const prevButton = slider.children[1];
+            // slider[i] > 세번째 자식(button.next)
+            const nextButton = slider.children[2];
+            // 사용자에게 보여줄 현재 슬라이드 번호
+            let index = 1;
+            // 트랜지션 시간동안 클릭 불가능하게 만들어줄 변수
+            let clickAble = true;
+
+
+            // 두 버튼에 이벤트리스너 추가하기
+            nextButton.addEventListener('click', 다음);
+            prevButton.addEventListener('click', 이전);
+
+            // 무한 슬라이드 처리를 위한 첫번째, 마지막 노드 복사 붙여넣기
+            const firstClone = slideWrapper.firstElementChild.cloneNode(true);
+            const lastClone = slideWrapper.lastElementChild.cloneNode(true);
+            slideWrapper.appendChild(firstClone);
+            slideWrapper.insertBefore(lastClone, slideWrapper.firstElementChild)
+
+            // index 1이 적용되도록 초기화
+            적용();
+
+            // 슬라이드가 이동할땐 0.5초 트랜지션, 이동하지 않을땐 트랜지션 없도록.
+            // 무한슬라이드 눈속임에 필요한 장치이다.
+            // ex) 마지막슬라이드 -> 첫번째 슬라이드로 이동할때 트랜지션이 없어야한다.
+            function slideTransition() {
+                slideWrapper.style.transition = `0.5s`;;
+                setTimeout(() => {
+                    slideWrapper.style.transition = `0s`;
+                }, 500);
+            }
+
+
+            function 다음() {
+                // 클릭 가능여부 먼저 체크
+                if (clickAble) {
+
+                    // 클릭 불가능하게 만들기
+                    clickAble = false;
+
+                    // 500ms 뒤에 클릭 가능하게 변경
+                    setTimeout(() => {
+                        clickAble = true;
+                    }, 500);
+
+                    slideTransition();
+
+                    index++;
+
+                    // 마지막 슬라이드에서 다음으로 넘겼을때
+                    // 트랜지션 재생 이후 슬라이드 이동하게끔 처리
+                    if (index === slideWrapper.childElementCount - 1) {
+                        setTimeout(() => {
+                            index = 1;
+                            적용();
+                        }, 500);
+                    }
+                    적용();
+                }
+            }
+
+            function 이전() {
+                if (clickAble) {
+                    clickAble = false;
+                    setTimeout(() => {
+                        clickAble = true;
+                    }, 500);
+                    slideTransition();
+                    index--;
+                    if (index === 0) {
+                        setTimeout(() => {
+                            index = slideWrapper.childElementCount - 2;
+                            적용();
+                        }, 500);
+                    }
+                    적용();
+                }
+            }
+
+            function 적용() {
+                slideWrapper.style.transform = `translateX(${index * (-200)}px)`;
+            }
+        }
+    </script>
+</body>
+
+</html>
