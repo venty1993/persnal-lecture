@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    업다운게임 만들어주세요!
+
+    게임 :
+    출제자가 숫자를 하나 정한 뒤
+    맞추는사람이 어떤 숫자를 말하면 처음에 정한 수보다 작은지 큰지 알려줍니다.
+    <script>
+         const number = Math.floor(Math.random() * 100 + 1)
+        console.log(  number  )
+        alert('Up & Down 게임에 오신것을 환영합니다!')
+        alert('1부터 100 사이의 숫자중 정답이 숨어있습니다.')
+        alert('기회는 총 5번! 운도 실력이래요 :)' + number)
+        
+     
+        const 기회 = 5
+        for(let i = 0; i < 기회; i++){
+            const 대답 = prompt('숫자를 말해보세요')
+            if(대답 == number){
+                alert('정답입니다!');
+                break;
+            }
+            else if(대답<number){
+                alert('up!')
+            }
+            else{
+                alert('down!')
+            }   
+            
+            if(i === 기회 - 1){
+                alert(`떙! 정답은${number}입니다!`)
+            }
+        }
+   
+        
+        
+    
+        
+        // Math.floor(값) = 값에서 소수점을 버린다.(내림))
+        // Math.random() = 0이상 1 미만의 난수를 생성한다.
+    </script>
+    예를들어 처음에 50을 정했고, 맞추는사람이 60이라고 하면
+    50이 더 작으니 '다운'이라고 알려줍니다.
+
+    정해진 기회 안에 정확한 숫자를 맞추면 승리
+    맞추지 못하면 패배입니다.
+
+    게임 조건
+    난수 범위는 1~100까지
+    정답 기회는 총 5번
+
+    Math.random?
+    수학.랜덤()
+
+    0 이상 1 미만
+    0.64514991375915648
+
+    0이상 100 미만
+    0~99.999999999999999
+    1 ~ 100.999999999999999
+    const 초기값 = 1;
+    const 범위 = 100;
+    
+    Math.floor(Math.random() * 범위 + 초기값)
+
+    난수생성(Math.random)
+    유저와의 대화(alert, prompt)
+    정답 확인(if)
+    횟수 반복(for) + break;
+
+    * break란?
+    - for문 안에서 break를 만나면 for문이 즉시 종료된다.
+    (정답을 맞췄을때, break 하도록 만들면 되겠죠?)
+    <script>
+        Math.floor(Math.random()*100+1)
+
+    </script>
+</body>
+</html>

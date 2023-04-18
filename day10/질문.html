@@ -10,7 +10,17 @@
 
 <body>
     <script>
-        document.write(makeRandom(100, 1));
+        let min=100;
+        let max=0;
+
+        for(let i = 0 ; i < 100000 ; i++){
+
+            const number = makeRandom(21, 20);
+                min = Math.min(number,min);
+                max = Math.max(number,max)
+        }
+
+        console.log(min,max);
 
         function makeRandom(range, start) {
             return Math.floor(Math.random() * range + start)
