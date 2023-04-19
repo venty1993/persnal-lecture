@@ -22,6 +22,7 @@
         }
         .slide-wrapper {
             display: flex;
+            gap: 8px;
             /* transform: translateX(-200px); */
             transition: 1s;
         }
@@ -48,36 +49,52 @@
     <div class="buttons">
         <button id="prev">이전</button><button id="next">다음</button>
     </div>
+
+    
     <script>
-        const slider = document.querySelector('.slide-wrapper')
-        let i = 0;
+        const slider = document.querySelector('.slider')
+        const slideWrapper = document.querySelector('.slide-wrapper')
+        let i = 1;
         const prevButton = document.querySelector('#prev')
         const nextButton = document.querySelector('#next')
+
+        const gap = 8;
+
         let moveAble = true;
+        
+        const slideViewCount = 3;
 
-        const cloneFisrt = slider.firstElementChild.cloneNode(true);
-        const cloneLast = slider.lastElementChild.cloneNode(true);
+        const sliderSize = 200 * slideViewCount + gap * (slideViewCount - 1);
+        slider.style.width = `${sliderSize}px`
 
-        slider.appendChild(cloneFisrt);
-        slider.insertBefore(cloneLast,slider.firstElementChild)
+
+
+
+        const cloneFisrt = slideWrapper.firstElementChild.cloneNode(true);
+        const cloneLast = slideWrapper.lastElementChild.cloneNode(true);
+
+        slideWrapper.appendChild(cloneFisrt);
+        slideWrapper.insertBefore(cloneLast,slideWrapper.firstElementChild)
         
         console.log(cloneFisrt, cloneLast)
+
+        applySlide();
 
         nextButton.addEventListener('click',()=>{
             
             if(moveAble){
                 moveAble=false;
-                slider.style.transition = '1s';
+                slideWrapper.style.transition = '1s';
 
                 i++;
-                slider.style.transform = `translate(${ i * -200 }px)`;
+                applySlide();
                 
-                if(i===slider.childElementCount-1){
+                if(i===slideWrapper.childElementCount-1){
                     
                     setTimeout(() => {
-                        slider.style.transition = '0s';
+                        slideWrapper.style.transition = '0s';
                         i=1;
-                        slider.style.transform = `translate(${ i * -200 }px)`;
+                        applySlide();
                         
                     }, 1000);
 
@@ -92,18 +109,29 @@
 
             if(moveAble){
                 moveAble=false;
-            i--;
+                slideWrapper.style.transition = '1s';
 
-            if(i===-1){
-                i=slider.childElementCount-1
-            }
-            slider.style.transform = `translate(${ i * -200 }px)`;
+                i--;
+                applySlide();
 
-            setTimeout(() => {
+                if(i===0){
+
+                    setTimeout(() => {
+                    slideWrapper.style.transition = '0s';
+                        i=slideWrapper.childElementCount-2;
+                        applySlide();
+                    }, 1000); 
+                }
+                setTimeout(() => {
                     moveAble = true;
-                }, 1000); 
+                }, 1000);
+            }
+       })
+
+        function applySlide() {
+            slideWrapper.style.transform = `translate(${ i * -208 }px)`;
         }
-        })
+    
 
         // 무한슬라이드..
         // 1 2 3 슬라이드가 있으면, 맨 앞에 1과 맨 뒤의 3을 복사해서 끼워넣는다.
