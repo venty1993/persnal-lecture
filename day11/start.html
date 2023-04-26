@@ -42,6 +42,8 @@
             <li class="slide">2</li>
             <li class="slide">3</li>
             <li class="slide">4</li>
+            <li class="slide">5</li>
+            <li class="slide">6</li>
 
             
         </ul>
@@ -54,15 +56,15 @@
     <script>
         const slider = document.querySelector('.slider')
         const slideWrapper = document.querySelector('.slide-wrapper')
-        let i = 1;
+        const slideViewCount = 4;
         const prevButton = document.querySelector('#prev')
         const nextButton = document.querySelector('#next')
-
+        
         const gap = 8;
-
+        
         let moveAble = true;
         
-        const slideViewCount = 3;
+        let i = slideViewCount;
 
         const sliderSize = 200 * slideViewCount + gap * (slideViewCount - 1);
         slider.style.width = `${sliderSize}px`
@@ -70,13 +72,22 @@
 
 
 
-        const cloneFisrt = slideWrapper.firstElementChild.cloneNode(true);
-        const cloneLast = slideWrapper.lastElementChild.cloneNode(true);
+        const cloneFront = [];
+        const cloneBack = [];
 
-        slideWrapper.appendChild(cloneFisrt);
-        slideWrapper.insertBefore(cloneLast,slideWrapper.firstElementChild)
-        
-        console.log(cloneFisrt, cloneLast)
+        for(let i = 0 ; i < slideViewCount ; i ++){
+            cloneFront.push(slideWrapper.children[i].cloneNode(true))
+            cloneBack.push(slideWrapper.children[slideWrapper.childElementCount - i -1].cloneNode(true))
+        }
+
+        for(let i = 0 ; i < slideViewCount ; i ++) {
+            slideWrapper.appendChild(cloneFront[i])
+            slideWrapper.insertBefore(cloneBack[i],slideWrapper.firstElementChild)
+
+        }
+        console.log(cloneFront, cloneBack);
+        // slideWrapper.insertBefore(cloneLast,slideWrapper.firstElementChild)
+     
 
         applySlide();
 
@@ -139,9 +150,7 @@
         // 3에서 다음을 누르면, [1]로 넘어가는 애니메이션을 보여주고,
         // 애니메이션완료되면 트랜지션 0s로 1번 슬라이드로 이동시킨다.
 
-        setTimeout(() => {
-            // 실행하고싶은거 입력
-        }, timeout);
+  
 
 
     </script>
