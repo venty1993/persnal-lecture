@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .modal-overlay {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #00000080;
+
+        }
+
+        .modal {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #232323;
+            border-radius: 8px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: white;
+            padding: 20px;
+
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal-overlay">
+        <div class="modal">
+            이것은 모달일까요
+            <button id="modal-exit">닫</button>
+        </div>
+    </div>
+    <button id="modal-view">aaa</button>
+    <script>
+        const modal = document.querySelector('.modal');
+        const modalView = document.getElementById('modal-view');
+        const modalOverlay = document.querySelector('.modal-overlay');
+        const modalExit = document.getElementById('modal-exit');
+        function closeModal(){modalOverlay.classList.remove('active')}
+
+        modalView.addEventListener('click', ()=>{
+            // 1안 modal.style.display = 'block';
+            // 2안 css클래스를 하나 만들어서 거기에 block을 넣고, 클래스를 넣어준다
+            modalOverlay.classList.add('active'); 
+        })
+
+        modalOverlay.addEventListener('click', (e)=>{
+            if(e.target.classList.contains('modal-overlay')){
+                closeModal();
+            }
+        })
+
+        window.addEventListener('keyup', (e)=>{
+            console.log(e);
+            if(e.key === 'Escape'){
+                closeModal();
+            }
+            
+        })
+
+        modalExit.addEventListener('click',()=>{
+            closeModal();
+        })
+
+
+
+        
+
+        // const clickmodal = display:block
+        // document.querySelector('#modal-view').addEventListener('click',()=>{
+        //     .modal=.{clickmodal}
+        // })
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 5000px;
+        }
+        
+        .scroll-animation {
+            transition: 1s;
+        }
+
+        .from-right {
+            transform: translateX(200px);
+            opacity: 0;
+        }
+
+        .from-left {
+            transform: translateX(-200px);
+            opacity: 0;
+        }
+
+        .active {
+            transform: none;
+            opacity: 1;
+        }
+
+
+        .box {
+            width: 200px;
+            height: 200px;
+            overflow: scroll;
+            margin: 0 auto;
+            margin-top: 2500px;
+            background-color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box scroll-animation from-right">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum unde minus repellat. Tenetur rem corporis dolore tempora, ipsum veritatis sunt cum aperiam tempore reprehenderit voluptatum, nostrum quibusdam omnis, doloribus asperiores.
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum unde minus repellat. Tenetur rem corporis dolore tempora, ipsum veritatis sunt cum aperiam tempore reprehenderit voluptatum, nostrum quibusdam omnis, doloribus asperiores.
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum unde minus repellat. Tenetur rem corporis dolore tempora, ipsum veritatis sunt cum aperiam tempore reprehenderit voluptatum, nostrum quibusdam omnis, doloribus asperiores.
+    </div>
+    <div class="box scroll-animation from-left">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum unde minus repellat. Tenetur rem corporis dolore tempora, ipsum veritatis sunt cum aperiam tempore reprehenderit voluptatum, nostrum quibusdam omnis, doloribus asperiores.
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum unde minus repellat. Tenetur rem corporis dolore tempora, ipsum veritatis sunt cum aperiam tempore reprehenderit voluptatum, nostrum quibusdam omnis, doloribus asperiores.
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum unde minus repellat. Tenetur rem corporis dolore tempora, ipsum veritatis sunt cum aperiam tempore reprehenderit voluptatum, nostrum quibusdam omnis, doloribus asperiores.
+    </div>
+
+    <script>
+        const saContent = document.getElementsByClassName('scroll-animation')
+
+        for(let i = 0 ; i < saContent.length ; i ++) {
+            
+       
+
+        window.addEventListener('scroll',()=>{
+          
+            // saContent[0].getBoundingClientRect().top
+            
+            
+            // 브라우저 내부의 위쪽으로부터 객체의 윗면까지의 거리 box[0].getBoundingClientRect().top
+            // window.innerHeight : 브라우저의 내부 높이
+            // 객체.classList.add('클래스이름') 클래스추가
+            // 객체.classList.remove('클래스이름') 클래스 제거
+            
+            if(window.innerHeight > saContent[i].getBoundingClientRect().top) {
+                saContent[i].classList.add('active');
+            }else {
+                saContent[i].classList.remove('active');
+            }
+            
+        })
+ }
+
+
+        
+
+        // top: 200
+        // bottom: 400
+        // left: 620
+        // right: 820
+
+        // height: 200
+        // width: 200
+
+        // x: 620
+        // y: 200
+    </script>
+</body>
+</html>
