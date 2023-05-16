@@ -1,0 +1,109 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'omyu_pretty';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+        body {
+            background-color: #ebebeb;
+            font-family: 'omyu_pretty';
+        }
+
+        .check-list-container {
+            width: 500px;
+            min-height: 500px;
+            border-radius: 8px;
+            background-color: white;
+            margin: 0 auto;
+            margin-top: 100px;
+            padding: 32px;
+        }
+
+        .check-list-input {
+            display: flex;
+            margin-bottom: 40px;
+        }
+        #check-input {
+            width: 100%;
+        }
+
+        .check-list-input>button {
+            width: 40px;
+            text-align: center  ;
+        }
+
+        .check-list-content {
+            display: flex;
+            gap: 8px;
+        }
+
+        .check-list-inner-text {
+            width: 100%;
+        }
+
+        .check-list-content > button{
+            flex-shrink: 0;
+        }
+        .check-list-content >input:checked + .check-list-inner-text{
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="check-list-container">
+        <div class="check-list-input">
+            <input type="text" name="" id="check-input"> <button id="add-list-button">추가</button>
+        </div>
+        <ul class="check-list-place">
+            <li class="check-list-content">
+                <input type="checkbox" name="" id="">
+                <p class="check-list-inner-text">여기에 내용이 들어간다</p>
+                <button class="check-mod">수정</button>
+                <button class="check-del">삭제</button>
+            </li>
+        </ul>
+    </div>  
+
+    <script>
+        const addButton = document.getElementById('add-list-button');
+        const addList = document.getElementsByClassName('check-list-place');
+        
+        // function addLiList(){
+            
+        // }
+        
+        addButton.addEventListener('click',()=>{
+            const li = document.querySelector('.check-list-content').cloneNode(true);
+            addList[0].appendChild(li);
+            
+        })
+    </script>
+</body>
+</html>
+
+<!-- 
+    체크박스 : 체크하면 체크되고 줄이그어지고 폰트 색이 연해지고 등등
+    리스트 : 투두리스트가 들어갈 영역
+    수정기능 : 수정기능을 이용해서 내용을 바꿀 수 있어야한다.
+    추가 : 새로운 투두리스트를 만드는 기능
+    삭제 : 투두리스트를 삭제하는 기능
+
+
+ -->
